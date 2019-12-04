@@ -178,7 +178,10 @@ class Team:
     def stats(self):
         '''Print team statistics'''
         for hero in self.heroes:
-            kd = hero.kills / hero.deaths
+            if hero.deaths == 0:
+                kd = 0
+            else:
+                kd = hero.kills / hero.deaths
             print("{} Kill/Deaths:{}".format(hero.name,kd))
 
     def revive_heroes(self):
